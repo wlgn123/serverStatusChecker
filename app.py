@@ -37,7 +37,9 @@ class ServerKey():
                 
     # key 비교 함수
     def check_key(self, request):
-        key = request.json['key']
+        print(request.form.get('key'))
+        print(request.args.get('key')) 
+        key = request.args.get('key')
         
         if(not(self.SERVER_KEY == key)):
             return False
@@ -70,4 +72,4 @@ def check():
     
     
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
